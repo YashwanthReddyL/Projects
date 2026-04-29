@@ -1,0 +1,82 @@
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+*.db
+*.sqlite3
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ----------------------
+# Environment variables
+# ----------------------
+.env
+.env.*
+*.env
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python build
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# ----------------------
+# Node.js
+# ----------------------
+node_modules/
+dist/
+build/
+
+# ----------------------
+# IDE / Editors
+# ----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------
+# Testing / coverage
+# ----------------------
+coverage/
+htmlcov/
+.pytest_cache/
+
+# ----------------------
+# Misc
+# ----------------------
+*.tmp
+*.bak
+*.cache
+
+# ----------------------
+# Large files (optional)
+# ----------------------
+*.zip
+*.tar
+*.gz
+*.rar

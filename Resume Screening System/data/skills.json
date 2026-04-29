@@ -1,0 +1,26 @@
+[
+  {
+    "name": "python",
+    "aliases": ["python", "flask", "django", "fastapi"]
+  },
+  {
+    "name": "machine learning",
+    "aliases": ["machine learning", "ml", "scikit-learn"]
+  },
+  {
+    "name": "deep learning",
+    "aliases": ["deep learning", "pytorch", "tensorflow"]
+  },
+  {
+    "name": "cloud",
+    "aliases": ["aws", "azure", "gcp"]
+  },
+  {
+    "name": "database",
+    "aliases": ["sql", "mysql", "postgresql"]
+  },
+  {
+    "name": "frontend",
+    "aliases": ["html", "css", "javascript", "react"]
+  }
+]
