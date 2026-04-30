@@ -1,0 +1,44 @@
+# /etc/systemd/system/ipl-backend.service
+# =========================================
+# Installed automatically by setup_ec2.sh.
+# To update manually:
+#   sudo nano /etc/systemd/system/ipl-backend.service
+#   sudo systemctl daemon-reload && sudo systemctl restart ipl-backend
+
+[Unit]
+Description=IPL Explorer FastAPI Backend
+After=network.target
+Wants=network.target
+
+[Service]
+Type=exec
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/ipl-explorer/backend
+
+# Load ANTHROPIC_API_KEY and other vars from .env
+EnvironmentFile=/opt/ipl-explorer/backend/.env
+
+# Gunicorn with Uvicorn workers
+# t3.medium: 2 vCPUs → formula (2 × CPUs) + 1 = 5 max → use 4
+ExecStart=/opt/ipl-explorer/.venv/bin/gunicorn main:app \
+    --workers 4 \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --bind 127.0.0.1:8000 \
+    --timeout 120 \
+    --keep-alive 5 \
+    --log-level info \
+    --access-logfile /var/log/ipl-backend-access.log \
+    --error-logfile /var/log/ipl-backend-error.log
+
+# Auto-restart if it crashes
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+# Allow many open files (pandas + CSV reading)
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
